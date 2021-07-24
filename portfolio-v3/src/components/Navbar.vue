@@ -6,7 +6,7 @@
                 <router-link :to="{name: 'About'}">About</router-link>
                 <router-link :to="{name: 'Project'}">Project</router-link>
                 <span>|</span>
-                <button @click="openContactModal">Contact</button>
+                <button @click="openModal('Contact')">Contact</button>
             </div>
       </nav>
   </div>
@@ -16,14 +16,15 @@
 import { ref } from '@vue/reactivity'
 
 export default {
-    setup(){
-        let showContactModal = ref(false)
+    setup(props,context){
+        let triggerModal = ref(false)
 
-        const openContactModal = () => {
-            showContactModal.value = true
+        const openModal = (value) => {
+            triggerModal.value = true
+            context.emit('triggerModal', { isOpen: triggerModal.value, dataValue: value })
         }
 
-        return {openContactModal}
+        return {openModal}
     }
 }
 </script>
@@ -37,7 +38,7 @@ export default {
         display:flex;
         align-items:center;
         justify-content: space-between;
-        max-width: 1000px;
+        max-width: 1200px;
         margin: 0 auto;
     }
 
