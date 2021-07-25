@@ -2,7 +2,9 @@
   <div class="home">
     <div class="profile">
       <h1>Hi, William Here!</h1>
-      <p>I am a software developer with a bachelor degree in IT. I am interested in Web development, desktop application development and cloud related subject.</p>
+      <p>I am a software developer with a bachelor degree in IT.
+          <span class="interest">I am interested in Web Development, Desktop Application Development and Cloud related subjects.</span>
+      </p>
     </div>
   </div>
 </template>
@@ -17,11 +19,18 @@ export default {
 
 <style>
   .profile {
-    height: 320px;
+    height: 405px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  @media only screen and (max-width: 600px){
+    .interest {
+      display:none;
+    }
+
   }
 
   .profile p {
@@ -29,6 +38,7 @@ export default {
     margin: 8px 4px;
     max-width: 720px;
     letter-spacing: 0.1em;
+    font-weight: 400;
     text-align: center;
   }
 </style>

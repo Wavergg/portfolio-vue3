@@ -17,6 +17,7 @@
 
 body {
     background: var(--base);
+    zoom: 125%;
 }
 
 a {
