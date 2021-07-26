@@ -6,30 +6,65 @@
           I am highly adaptable and driven by learning. I am still growing as developer and would like to absorb more knowledges.
       </p>
     </div>
-    <div class="stacks">
-      
-    </div>
-
-    <div class="about-links">
-      <a href="https://github.com/Wavergg/" target="_blank" class="github">
-        <!-- <p>Github</p> -->
-        
-      </a>
-      <a href="https://www.linkedin.com/in/william-edwin-653899200/" target="_blank" class="linkedIn">
-        <!-- <p>LinkedIn</p> -->
-        
-      </a>
-      <a href="/resumeWilliam.docx" class="resume" download>
-        <!-- <p>Resume</p> -->
-        
-      </a>
+    <!-- Links to External Pages -->
+    <AboutLinks/>
+    <div class="technologies">
+      <h1>Technologies that I've worked with</h1>
+      <div class="technologies-container">
+        <div class="languages" >
+          <div class="stacks" >
+            <div class="stack-item">
+              <span>C#</span>
+            </div>
+            <div class="stack-item">
+              <span>HTML5</span>
+            </div>
+            <div class="stack-item">
+              <span>CSS</span> 
+            </div>
+            <div class="stack-item">
+              JavaScript
+            </div>
+            <div class="stack-item">
+              SQL
+            </div>
+            <div class="stack-item">
+              PHP
+            </div>
+          </div>
+        </div>
+        <div class="framework" >
+          <div class="stacks" style="direction: rtl;">
+            <div class="stack-item">
+              Net Core
+            </div>
+            <div class="stack-item">
+              Bootstrap
+            </div>
+            <div class="stack-item">
+              Materialize CSS
+            </div>
+            <div class="stack-item">
+              Vue JS
+            </div>
+            <div class="stack-item">
+              CodeIgniter
+            </div>
+            <div class="stack-item">
+              Firebase
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import AboutLinks from '../components/AboutLinks.vue'
 
 export default {
+  components: { AboutLinks },
   setup(){
   }
 }
@@ -42,7 +77,7 @@ export default {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    margin-top: 85px;
+    padding-top: 85px;
   }
 
   .about p{
@@ -55,35 +90,54 @@ export default {
     text-align: justify;
   }
 
-  .stacks {
+  .technologies {
     max-width: 720px;
     width: 720px;
+    margin-top: 15px;
   }
 
-  
-  
+  .technologies-container {
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 25px;
+  }
+
+  .technologies-container div{
+    text-align: center;
+  }
 
   .about div h1 {
     text-align: center;
   }
 
-  /* .about-links {
+  .stacks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 4px;
+    position: relative;
   }
 
-  .about-links-image {
-    height: 32px;
+  .stack-img {
+    width: calc(100% - 20px);
   }
 
-  .about-links div p{
-    text-align: center;
-  } */
+  .stack-item{
+    width: 72px;
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
 
   @media only screen and (max-width: 600px){
     .about {
       font-size: 14px;
     }
 
-    .stacks {
+    .technologies {
       width: auto;
     }
 

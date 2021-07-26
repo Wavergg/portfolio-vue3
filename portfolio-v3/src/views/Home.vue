@@ -5,14 +5,18 @@
       <p>I am a software developer with a bachelor degree in IT.
           <span class="interest">I am interested in Web Development, Desktop Application Development and Cloud related subjects.</span>
       </p>
+      <AboutLinks style="margin-top:10px"/>
     </div>
   </div>
 </template>
 
 <script>
+import AboutLinks from '../components/AboutLinks'
+
 export default {
   name: 'Home',
   components: {
+    AboutLinks
   }
 }
 </script>

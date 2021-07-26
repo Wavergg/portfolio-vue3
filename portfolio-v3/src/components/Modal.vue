@@ -37,7 +37,7 @@ export default {
 
   .modal-container {
     position: relative;
-    margin: 20vh auto;
+    margin: 15vh auto;
     max-width: 600px;
     height:300px;
     background: #fff;

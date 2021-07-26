@@ -5,7 +5,8 @@
       <router-view/>
     </div>
     <Modal v-if="showModal" @closeModal="showModal = false" :content="modalData"/>
-    <Footer />
+    
+    <!-- <Footer /> -->
   </div>
 </template>
 

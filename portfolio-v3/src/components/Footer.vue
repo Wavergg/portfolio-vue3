@@ -19,7 +19,7 @@ export default {
     .footer {
         position: fixed;
         bottom:0;
-        width: 100vw;
+        width: 100%;
         box-sizing: border-box;
         height: 20vh;
         padding: 12px 8px;
@@ -39,7 +39,7 @@ export default {
         position: absolute;
         bottom:0;
         right:0;
-        text-align: right;
+        text-align: left;
         margin-right: 20px;
         background-color: white;
         padding: 2px 12px;
