@@ -7,6 +7,7 @@
         </div>
         <div class="modal-content">
           <!-- Fire different Data based on modal -->
+          <slot name="contact"></slot>
         </div>
       </div>
   </div>
@@ -37,16 +38,37 @@ export default {
 
   .modal-container {
     position: relative;
-    margin: 15vh auto;
+    margin: 14vh auto;
     max-width: 600px;
-    height:300px;
+    height:320px;
     background: #fff;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.4);
     border-radius: 12px;
     padding: 12px 8px;
   }
 
-  @media only screen and (max-width: 640px){
+  @media only screen and (max-width: 576px){
+    .modal-container {
+      margin: 16vh 20px;
+    }
+
+    .modal-content {
+      overflow: scroll;
+    }
+  }
+
+  @media only screen and (min-width: 576px) and (max-width: 767.98px){
+    .modal-container {
+      margin: 15px;
+    }
+
+    .modal-content {
+      overflow: scroll;
+      height: calc(100% - 130px)
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 992px){
     .modal-container {
       margin: 20vh 20px;
     }
@@ -67,6 +89,16 @@ export default {
 
   .modal-content {
     padding: 12px 8px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 12px;
+    scroll-behavior: smooth;
+    
+  }
+
+  @media only screen and (max-width:768px){
+    .modal-content {
+      display: block
+    }
   }
 </style>

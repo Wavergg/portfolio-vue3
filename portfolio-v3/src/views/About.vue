@@ -11,8 +11,8 @@
     <div class="technologies">
       <h1>Technologies that I've worked with</h1>
       <div class="technologies-container">
-        <div class="languages" >
-          <div class="stacks" >
+        <div class="languages">
+          <div class="stacks">
             <div class="stack-item">
               <span>C#</span>
             </div>
@@ -33,8 +33,8 @@
             </div>
           </div>
         </div>
-        <div class="framework" >
-          <div class="stacks" style="direction: rtl;">
+        <div class="framework">
+          <div class="stacks grid-rtl">
             <div class="stack-item">
               Net Core
             </div>
@@ -116,6 +116,7 @@ export default {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 4px;
     position: relative;
+    justify-items: center;
   }
 
   .stack-img {
@@ -132,13 +133,13 @@ export default {
     font-size: 12px;
   }
 
+  .grid-rtl {
+    direction: rtl;
+  }
+
   @media only screen and (max-width: 600px){
     .about {
       font-size: 14px;
-    }
-
-    .technologies {
-      width: auto;
     }
 
     .about p{
@@ -152,4 +153,19 @@ export default {
     }
   }
 
+  @media only screen and (max-width:768px) {
+    
+    .technologies {
+      width: auto;
+    }
+    
+    .technologies-container {
+      display: inline
+    }
+
+    .stacks {
+      grid-template-columns: 1fr 1fr;
+      direction: ltr;
+    }
+  }
 </style>

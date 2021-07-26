@@ -4,7 +4,12 @@
     <div class="content">
       <router-view/>
     </div>
-    <Modal v-if="showModal" @closeModal="showModal = false" :content="modalData"/>
+    <Modal v-if="showModal" @closeModal="showModal = false" :content="modalData">
+      <template v-slot:contact>
+        <ContactDetails/>
+        <ContactForm/>
+      </template>
+    </Modal>
     
     <!-- <Footer /> -->
   </div>
@@ -14,13 +19,17 @@
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
 import Modal from './components/Modal.vue'
+import ContactForm from './components/ContactForm.vue'
+import ContactDetails from './components/ContactDetails.vue'
 import { ref } from '@vue/reactivity'
 
 export default {
   components: {
     Navbar,
     Modal,
-    Footer
+    Footer,
+    ContactForm,
+    ContactDetails
   },
   setup() {
     const showModal = ref(false)

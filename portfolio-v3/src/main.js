@@ -4,15 +4,12 @@ import router from './router'
 
 //font awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faGithub  } from '@fortawesome/free-brands-svg-icons'
-import { faLinkedin  } from '@fortawesome/free-brands-svg-icons'
-import { faFilePdf } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faFilePdf, faPhone , faAt } from '@fortawesome/free-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add (faGithub)
-library.add (faLinkedin)
-library.add (faFilePdf)
+library.add (faGithub, faLinkedin, faFilePdf, faPhone, faAt)
 
 //global CSS
 import './assets/global.css'

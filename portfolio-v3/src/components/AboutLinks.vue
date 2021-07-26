@@ -23,10 +23,10 @@ export default {
 
 <style>
     .about-links {
-    display: flex;
-    justify-content: space-between;
-    max-width: 720px;
-    width: 720px;
+        display: flex;
+        justify-content: space-between;
+        max-width: 720px;
+        width: 720px;
   }
 
   .about-links a {
@@ -39,7 +39,7 @@ export default {
     color: cadetblue;
   }
 
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 768px){
     .about-links {
       display: block;
       width: auto;
