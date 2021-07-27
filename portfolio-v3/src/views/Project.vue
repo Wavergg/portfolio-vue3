@@ -56,7 +56,7 @@ export default {
         {
           id: 2,
           title: "E-commerce Website", 
-          description: `This website is created with C# ASP.NET Core with Entity framework Identity Authentication.`,
+          description: `This website is created with an idea to Trying to mimic a real world application. Made with C# ASP.NET Core with Entity framework Identity Authentication. `,
           tags: [
             "C# ASP.NET Core",
             "Bootstrap CSS",
