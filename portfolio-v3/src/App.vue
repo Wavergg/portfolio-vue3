@@ -64,7 +64,7 @@ export default {
   .content {
     margin: 0 auto;
     max-width: 1200px;
-    padding: 0 20px;
+    padding: 0 20px 20px;
   }
 
   /* Transition enter for toast */
