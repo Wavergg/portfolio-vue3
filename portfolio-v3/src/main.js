@@ -11,7 +11,15 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add (faGithub, faLinkedin, faFilePdf, faPhone, faAt)
 
+//VueLightBox
+import VueEasyLightbox from 'vue-easy-lightbox'
+
 //global CSS
 import './assets/global.css'
 
-createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+
+createApp(App)
+    .use(router)
+    .use(VueEasyLightbox)
+    .component('font-awesome-icon', FontAwesomeIcon)
+    .mount('#app')

@@ -3,38 +3,132 @@
     <h1>My Projects</h1>
 
     <div class="projects-wrapper">
-      <div class="card">
-        <div class="project-details">
-          <h3 class="project-title">Portfolio Website</h3>
-          <p>The portfolio website that you are currently at is created with Vue 3 as a Single Page Application.
-              A popular javascript framework next to Angular and React JS.</p>
-          <div class="badges">
-            <div class="badge">
-              Vue JS
-            </div>
-          </div>
-        </div>
-        <div class="project-image">
-          <img src="@/assets/images/portfolio-mobile.png" alt="portfolio-mobile" class="img-mobile"/>
-          <img src="@/assets/images/portfolio-desktop.png" alt="portfolio-desktop" class="img-desktop"/>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Wavergg/portfolio-vue3" class="btn">
-            Source Code
-          </a>
-          <a href="#" class="btn">
-            External link
-          </a>
-        </div>
-      </div>
+    
+    <div v-for="project in projects" :key="project.id">
+      <Card :project="project" @showSingle="showSingle"/>
+    </div>
+
+    <VueEasyLightbox scrollDisabled
+      escDisabled
+      moveDisabled
+      :visible="visible"
+      :imgs="imgs"
+      :index="index"
+      @hide="handleHide" />
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  setup(){
+import VueEasyLightbox from 'vue-easy-lightbox'
+import { ref } from '@vue/reactivity';
 
+import Card from '../components/Card.vue'
+
+export default {
+  components: {
+    VueEasyLightbox,
+    Card
+  },
+  setup(){
+    //Project Data
+    const projects = [
+        {
+          id: 1,
+          title: "Portfolio Website", 
+          description: `The portfolio website that you are currently visiting is created with
+            Vue JS as a Single Page Application. A popular javascript framework next
+            to Angular and React JS.`,
+          tags: [
+            "Vue JS v3",
+          ],
+          thumbnailImageMobile: "/images/portfolio-project/portfolio-mobile.png",
+          thumbnailImageDesktop: "/images/portfolio-project/portfolio-desktop.png",
+          images: [
+            { 
+              title: 'Contact Modal Preview',
+              src: '/images/portfolio-project/portfolio-preview-1.png'
+            },
+          ],
+          sourceCode: "https://github.com/Wavergg/portfolio-vue3",
+          demo: "",
+        },
+        {
+          id: 2,
+          title: "E-commerce Website", 
+          description: `This website is created with C# ASP.NET Core with Entity framework Identity Authentication.`,
+          tags: [
+            "C# ASP.NET Core",
+            "Bootstrap CSS",
+            "SQL Server"
+          ],
+          thumbnailImageMobile: "/images/ecommerce-project/ecommerce-homepage-mobile.png",
+          thumbnailImageDesktop: "/images/ecommerce-project/ecommerce-homepage-desktop.png",
+          images: [
+            { 
+              title: 'Home page',
+              src: '/images/ecommerce-project/ecommerce-homepage-desktop.png'
+            },
+            { 
+              title: 'Recipe page',
+              src: '/images/ecommerce-project/ecommerce-recipe.png'
+            },
+            { 
+              title: 'Product details',
+              src: '/images/ecommerce-project/ecommerce-product-details.png'
+            },
+            { 
+              title: 'Demo Gif',
+              src: '/images/ecommerce-project/ecommerce-demo.gif'
+            },
+          ],
+          sourceCode: "https://github.com/Wavergg/721SoftwareEngineering",
+          demo: "",
+        },
+        {
+          id: 3,
+          title: "Meditrainsouth Website", 
+          description: `This static web pages is created with materialize css and created to help the client in promoting her business.`,
+          tags: [
+            "Materialize CSS",
+          ],
+          thumbnailImageMobile: "/images/meditrainsouth-project/meditrainsouth-homepage-mobile.png",
+          thumbnailImageDesktop: "/images/meditrainsouth-project/meditrainsouth-homepage-desktop.png",
+          images: [
+            { 
+              title: 'Home page',
+              src: '/images/meditrainsouth-project/meditrainsouth-homepage-desktop.png'
+            },
+            { 
+              title: 'About us page',
+              src: '/images/meditrainsouth-project/meditrainsouth-offers.png'
+            },
+          ],
+          sourceCode: "https://github.com/Wavergg/WebsiteMeditrainSouth",
+          demo: "https://meditrainsouth.co.nz/",
+        },
+    ]
+
+    const imgs = ref(null);
+    const visible = ref(false);
+
+    //Emit the images array from individual card
+    const showSingle = (id) => {
+        const projectClicked = projects.find(project => { return project.id === id})
+        imgs.value = projectClicked.images
+        show()
+    }
+
+    const show = () => {
+      visible.value = true
+    }
+
+    const handleHide = () => {
+        visible.value = false
+    }
+
+    
+    return {imgs, showSingle , show, visible,handleHide, projects}
   }
 };
 </script>
@@ -58,90 +152,5 @@ export default {
   justify-items: center;
   gap: 12px;
   width: 100%;
-}
-
-.card {
-  box-shadow: 0px 0px 9px #eee;
-  min-height: 250px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  padding: 24px;
-  column-gap: 12px;
-}
-
-@media only screen and (max-width: 667px) {
-  .card {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .project-image {
-    order: 1;
-    border-bottom: 1px solid #eee;
-  }
-
-  .project-details {
-    order: 2;
-    margin-top: 12px;
-    text-align: justify;
-  }
-
-  .img-mobile {
-    display: block;
-  }
-
-  .img-desktop {
-    display: none;
-  }
-
-  .project-links {
-    margin-top: 24px;
-    flex-direction: column;
-  }
-}
-
-@media only screen and (min-width: 667px){
-  .img-mobile {
-    display: none;
-  }
-
-  .img-desktop {
-    display: block;
-  }
-}
-
-.project-details {
-  width: 100%; 
-  position: relative;
-  text-align: center;
-}
-
-.project-details p {
-  text-align: start;
-  font-size:14px;
-  margin-top:12px;
-}
-
-.project-image {
-  grid-row: 1 / 2 span;
-  grid-column: 2;
-}
-
-.project-image img {
-  width: 100%;
-}
-
-.project-links {
-  order:3;
-  display:flex;
-  gap: 12px;
-  justify-content: space-around;
-}
-
-.badges {
-    display:flex;
-    margin-top:12px;
-    gap:4px;
 }
 </style>
