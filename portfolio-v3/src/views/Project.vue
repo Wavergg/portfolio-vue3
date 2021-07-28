@@ -127,8 +127,7 @@ export default {
         visible.value = false
     }
 
-    
-    return {imgs, showSingle , show, visible,handleHide, projects}
+    return {imgs, showSingle , show, visible, handleHide, projects}
   }
 };
 </script>

@@ -32,14 +32,28 @@ export default {
   .about-links a {
     display: flex;
     align-items: center;
+    position: relative;
   }
 
-  .about-links a:hover > * {
-    text-decoration: underline;
-    color: cadetblue;
+  .about-links a:hover::after{
+    content: "";
+    position: absolute;
+    height: 3px;
+    background-color: #2b3a48;
+    animation: highlight-bar 0.2s ease-in forwards;
+    bottom: 0;
   }
 
-  @media only screen and (max-width: 768px){
+  @keyframes highlight-bar {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%
+    }
+  }
+
+  @media only screen and (max-width: 860px){
     .about-links {
       display: block;
       width: auto;

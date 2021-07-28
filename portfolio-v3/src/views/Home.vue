@@ -23,12 +23,31 @@ export default {
 
 <style>
   .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 85px;
+  }
+
+  .profile p{
+    font-size: 18px;
+    margin: 8px 4px;
+    max-width: 720px;
+    letter-spacing: 0.1em;
+    line-height: 1.7em;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  /* .profile {
     height: 405px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
+  } */
 
   @media only screen and (max-width: 600px){
     .interest {
@@ -37,12 +56,5 @@ export default {
 
   }
 
-  .profile p {
-    font-size: 18px;
-    margin: 8px 4px;
-    max-width: 720px;
-    letter-spacing: 0.1em;
-    font-weight: 400;
-    text-align: center;
-  }
+  
 </style>

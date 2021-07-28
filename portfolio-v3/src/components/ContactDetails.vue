@@ -52,7 +52,7 @@ export default {};
         margin-left:12px;
     }
 
-    @media only screen and (max-width: 768px){
+    @media only screen and (max-width: 767.98px){
         .contact-details {
             display: none;
         }

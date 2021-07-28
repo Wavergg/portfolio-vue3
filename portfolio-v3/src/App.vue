@@ -1,16 +1,22 @@
 <template>
   <div>
-    <Navbar @triggerModal="triggerModal"/>
+    <Navbar @triggerModal="triggerModal" @loadContent="showContent = true"/>
+      <div class="content">
+        <router-view v-slot="{Component}">
+          <transition v-if="showContent" name="content" appear mode="out-in">
+            <component :is="Component"></component>
+          </transition>
+        </router-view>
+      </div>
     
-    <div class="content">
-      <router-view/>
-    </div>
-    <Modal v-if="showModal" @closeModal="showModal = false" :content="modalData">
-      <template v-slot:contact>
-        <ContactDetails/>
-        <ContactForm @triggerToast="triggerToast"/>
-      </template>
-    </Modal>
+    <transition appear name="modal">
+      <Modal v-if="showModal" @closeModal="showModal = false" :content="modalData">
+        <template v-slot:contact>
+          <ContactDetails/>
+          <ContactForm @triggerToast="triggerToast"/>
+        </template>
+      </Modal>
+    </transition>
     <transition name="toast">
       <Toast v-if="showToast" :isSuccess="toastData"/>
     </transition>
@@ -39,6 +45,7 @@ export default {
   setup() {
     const showModal = ref(false)
     const showToast = ref(false)
+    const showContent = ref(false)
     const modalData = ref('')
     const toastData = ref(null)
 
@@ -55,7 +62,7 @@ export default {
       }, 5000);
     }
     
-    return { triggerModal, triggerToast, showToast, showModal , modalData, toastData}
+    return { triggerModal, triggerToast, showToast, showModal, showContent, modalData, toastData}
   },
 }
 </script>
@@ -67,28 +74,41 @@ export default {
     padding: 0 20px 20px;
   }
 
-  /* Transition enter for toast */
-  .toast-enter-from {
-    opacity: 0;
-    transform: translateY(-90px)
-  }
-  .toast-enter-to {
-    opacity: 1;
-    transform: translate(0);
-  }
-  .toast-enter-active {
-    transition: all 0.4s ease-in;
-  }
-  /* Transition leave for toast */
-  .toast-leave-from {
-    opacity: 1;
-    transform: translate(0);
-  }
+  /* Transition for toast */
+  .toast-enter-from,
   .toast-leave-to {
     opacity: 0;
     transform: translateY(-90px)
   }
+  .toast-enter-to,
+  .toast-leave-from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .toast-enter-active,
   .toast-leave-active {
+    transition: all 0.4s ease-in;
+  }
+
+  /* Transition for Content */
+  .content-enter-from,
+  .content-leave-to,
+  .modal-enter-from,
+  .modal-leave-to {
+    opacity: 0;
+    transform: translateX(-90px)
+  }
+  .content-enter-to,
+  .content-leave-from,
+  .modal-enter-to,
+  .modal-leave-from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .content-enter-active,
+  .content-leave-active,
+  .modal-enter-active,
+  .modal-leave-active {
     transition: all 0.4s ease-in;
   }
 </style>

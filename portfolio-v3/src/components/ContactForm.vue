@@ -66,6 +66,19 @@ export default {
 
     .container {
         width:100%;
+        overflow-y: auto;
+    }
+
+    @media only screen and (max-height: 414px){
+        .container {
+            height: 40vh;
+        }
+    }
+
+    @media only screen and (min-height: 414.01px) and (max-height: 568px) {
+        .container {
+            height: 50vh;
+        }
     }
 
     label {
@@ -95,7 +108,4 @@ export default {
     .button-send:hover {
         border: 1px solid #eee;
     }
-
-
-    
 </style>
