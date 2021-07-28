@@ -2,7 +2,7 @@
 My portfolio website that is created by using vue 3
 
 # Installing Dependencies
-To be sure the course files work correctly on your computer, you will need to:
+To be sure the app work correctly on your computer, you will need to:
 
 1. Open the project folder in VS Code
 2. In the terminal, navigate to the root directory of the project
